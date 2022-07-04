@@ -114,12 +114,12 @@ NSString * const DateFormatModeYearAndMonth = @"yyyy-MM";
     return timeDetailDic;
 }
 
-#pragma mark---其它时间操作
-+(NSString *)compareTimeIntervalWithTimeEarly:(NSString *)timeEarly timeLater:(NSString *)timeLater dateFormat:(DateFormatMode)formatMode{
-    NSInteger timeStampEarly = [[self dateToTimeStamp:timeEarly dateFormat:formatMode] integerValue];
-    NSInteger timeStampLater = [[self dateToTimeStamp:timeLater dateFormat:formatMode] integerValue];
-    return NSIntegerToString(timeStampLater - timeStampEarly);
-}
+//#pragma mark---其它时间操作
+//+(NSString *)compareTimeIntervalWithTimeEarly:(NSString *)timeEarly timeLater:(NSString *)timeLater dateFormat:(DateFormatMode)formatMode{
+//    NSInteger timeStampEarly = [[self dateToTimeStamp:timeEarly dateFormat:formatMode] integerValue];
+//    NSInteger timeStampLater = [[self dateToTimeStamp:timeLater dateFormat:formatMode] integerValue];
+//    return NSIntegerToString(timeStampLater - timeStampEarly);
+//}
 
 ///判断时间是今天、昨天、更早
 +(NSString *)judgeTheDateIsTodayYesterdayOrEarlierWithString:(NSString *)date{

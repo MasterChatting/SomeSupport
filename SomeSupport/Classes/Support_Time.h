@@ -150,11 +150,11 @@ FOUNDATION_EXPORT DateFormatMode const DateFormatModeDateHourMinuteSecond;
 
 #pragma mark---其它时间操作
 
-/// 对比两个时间之差：秒
-/// @param timeEarly 较早时间
-/// @param timeLater 较晚时间
-/// @param formatMode 时间格式
-+ (NSString *)compareTimeIntervalWithTimeEarly:(NSString *)timeEarly timeLater:(NSString *)timeLater dateFormat:(DateFormatMode)formatMode;
+///// 对比两个时间之差：秒
+///// @param timeEarly 较早时间
+///// @param timeLater 较晚时间
+///// @param formatMode 时间格式
+//+ (NSString *)compareTimeIntervalWithTimeEarly:(NSString *)timeEarly timeLater:(NSString *)timeLater dateFormat:(DateFormatMode)formatMode;
 
 /**  判断时间是今天、昨天、更早  时间格式必须包含年月日*/
 +(NSString *)judgeTheDateIsTodayYesterdayOrEarlierWithString:(NSString *)date;

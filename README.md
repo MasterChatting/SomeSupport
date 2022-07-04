@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SomeSupport
 
 [![CI Status](https://img.shields.io/travis/NHT18610866107@163.com/SomeSupport.svg?style=flat)](https://travis-ci.org/NHT18610866107@163.com/SomeSupport)
@@ -27,3 +28,6 @@ NHT18610866107@163.com, NHT18610866107@163.com
 ## License
 
 SomeSupport is available under the MIT license. See the LICENSE file for more info.
+=======
+# SomeSupport
+>>>>>>> fe89812d15171988e3c8cbee5ab95e179ccf6f1b

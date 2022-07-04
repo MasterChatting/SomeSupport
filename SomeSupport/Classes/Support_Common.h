@@ -66,8 +66,6 @@ typedef NS_ENUM(NSInteger, IHGradientChangeDirection) {
 /// @param fileName 文件的名称 也可以是文件夹比如 xxx.txt 或者 /xxx/xxx
 +(BOOL)checkFileIsExit:(NSString *)fileName;
 
-///根据地址 获取文件类型
-+(NSString *)mimeType:(NSURL *)url;
 
 ///根据Controller名称跳转到下一页
 +(void)goNextControllerByName:(NSString *)vcName;

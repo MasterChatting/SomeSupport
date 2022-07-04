@@ -135,13 +135,6 @@
     }
     return NO;
 }
-#pragma mark--- 根据地址 获取文件类型
-+(NSString *)mimeType:(NSURL *)url{
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    NSURLResponse *response = [[NSURLResponse alloc] init];
-    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
-    return response.MIMEType;
-}
 
 #pragma mark--- 根据Controller名称跳转到下一页
 +(void)goNextControllerByName:(NSString *)vcName{
