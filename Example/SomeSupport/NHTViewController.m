@@ -7,6 +7,7 @@
 //
 
 #import "NHTViewController.h"
+#import "SomeSupport.h"
 
 @interface NHTViewController ()
 
