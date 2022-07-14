@@ -10,6 +10,7 @@
 
 #import "Support_Common.h"
 #import "Support_Time.h"
+#import "Support_StringHexDataChange.h"
 
 
 //字符串是否不为空 yes不为空 NO为空

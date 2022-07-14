@@ -12,6 +12,7 @@
 
 #import "SomeSupport.h"
 #import "Support_Common.h"
+#import "Support_StringHexDataChange.h"
 #import "Support_Time.h"
 
 FOUNDATION_EXPORT double SomeSupportVersionNumber;

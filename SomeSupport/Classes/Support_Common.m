@@ -409,5 +409,21 @@
         return [scan scanFloat:&val] && [scan isAtEnd];
     }
 }
+#pragma mark---保存、获取、删除、编辑数据
++(void)saveUserDefaulValue:(id)value Forkey:(NSString *)key
+{
+    [[NSUserDefaults standardUserDefaults] setObject:value forKey:key];
+    //避免存的是nsnull 等
+    //    [[NSUserDefaults standardUserDefaults] setObject:[Support_NetWork changeType:value] forKey:key];
+}
++(void)deleteUserDefauKey:(NSString *)key
+{
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:key];
+}
++(id)getNSUerDefaultsByKey:(NSString *)key{
+    id returnMes =  [[NSUserDefaults standardUserDefaults] objectForKey:key];
+    return  returnMes;
+}
+
 
 @end

@@ -80,9 +80,13 @@ typedef NS_ENUM(NSInteger, IHGradientChangeDirection) {
 ///获取当前屏幕显示的viewcontroller
 + (UIViewController *)getCurrentVC;
 
-/// 创建是否自动消失的弹框
-/// @param message 内容
-/// @param disappearTime 0代表不自动消失
+#pragma mark---- ----创建是否自动消失的弹框
+/**
+ message显示信息，disappearTime几秒后自动消失，为0时不自动消失，会添加确定按钮
+ 
+ @param message 提示信息
+ @param disappearTime 自动消失的时间 为0时不自动消失并会添加确定按钮
+ */
 +(void)createALert:(NSString *)message andDisappear:(CGFloat)disappearTime;
 
 /**
@@ -98,6 +102,9 @@ typedef NS_ENUM(NSInteger, IHGradientChangeDirection) {
 //类型识别:将所有的NSNull类型转化成@"<NSNull>
 +(id)changeType:(id)myObj;
 
+/*将数据转换成NSString*/
++(NSString *)returnStringWith:(id)oldString;
+
 /// 检查更新needAlert是否需要弹窗 ，如果不需要并且有新版本
 /// 会发出一个通知-AppHaveNewVersion
 /// @param appID 应用id
@@ -109,6 +116,23 @@ typedef NS_ENUM(NSInteger, IHGradientChangeDirection) {
 /// @param string 需要判断的字符串
 /// @param isInt 是否判断 是否为整数
 + (BOOL)isPureFloat:(NSString *)string isInt:(BOOL)isInt;
+
+#pragma mark---保存、获取、删除、编辑数据
+///保存到本地 如果保存的数据过多，会造成卡顿现象
++(void)saveUserDefaulValue:(id)value Forkey:(NSString *)key;
+
+///删除NSUserDefaults
++(void)deleteUserDefauKey:(NSString *)key;
+
+/**
+ 获取本地UserDefaults 数据
+ 
+ @param key 键
+ @return 值 返回id类型
+ */
++(id)getNSUerDefaultsByKey:(NSString *)key;
+
+
 
 @end
 
