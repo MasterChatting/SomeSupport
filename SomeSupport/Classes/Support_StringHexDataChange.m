@@ -167,8 +167,8 @@
 +(NSString *)decimaStringToBinarySystem:(NSString *)decimal{
     //十进制转二进制
     NSInteger num = [decimal intValue];
-    NSInteger remainder = 0;      //余数
-    NSInteger divisor = 0;        //除数
+    long int remainder = 0;      //余数
+    long int divisor = 0;        //除数
     
     NSString * prepare = @"";
     
@@ -187,7 +187,7 @@
     
     NSString * result = @"";
     
-    for (NSInteger i = prepare.length - 1; i >= 0; i --){
+    for (long int i = prepare.length - 1; i >= 0; i --){
         
         result = [result stringByAppendingFormat:@"%@",
                   [prepare substringWithRange:NSMakeRange(i , 1)]];
@@ -210,7 +210,7 @@
  */
 + (NSString *)binarySystemToDecimaString:(NSString *)binary
 {
-    NSInteger ll = 0 ;
+    long int ll = 0 ;
     NSInteger  temp = 0 ;
     for (NSInteger i = 0; i < binary.length; i ++){
         
