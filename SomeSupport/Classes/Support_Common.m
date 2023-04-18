@@ -284,7 +284,7 @@
     if ([string isEqualToString:@"<NSNull>"]) {
         return @"";
     }
-    if(IsNOTEmptyStr([self returnStringWith:string])){
+    if([self IsNOTEmptyStr:[self returnStringWith:string]]){
         return string;
     }else{
         return @"";
@@ -297,7 +297,7 @@
         return @"";
     }
     if ([oldString isKindOfClass:[NSString class]]) {
-        if(IsEmptyStr(oldString)){
+        if([self IsEmptyStr:oldString]){
             return @"";//将为空的字符返回为@“”
         }
     }
@@ -325,7 +325,7 @@
                 newVersion = [dic valueForKey:@"version"]; // appStore 的版本号
             }
             
-            if (IsNOTEmptyStr(newVersion)) {
+            if ([self IsNOTEmptyStr:newVersion]) {
                 NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
                 NSString *appCurVersionNum = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
                 if (newVersion.length > appCurVersionNum.length) {
@@ -373,7 +373,7 @@
 }
 #pragma mark--- 判断是否是整数或者小数
 + (BOOL)isPureFloat:(NSString *)string isInt:(BOOL)isInt{
-    if (IsEmptyStr(string)) {
+    if ([self IsEmptyStr:string]) {
         return NO;
     }
     NSScanner* scan = [NSScanner scannerWithString:string];

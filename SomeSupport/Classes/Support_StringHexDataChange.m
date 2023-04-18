@@ -152,7 +152,7 @@
     NSData *highData = [self changeHexDataToHighBitFirst:lowHexData];
     decimaString = [self hexDataToDecimalString:highData];
 
-    if (IsEmptyStr(decimaString)) {
+    if ([Support_Common IsEmptyStr:decimaString]) {
         return 0;
     }
     return [decimaString integerValue];
