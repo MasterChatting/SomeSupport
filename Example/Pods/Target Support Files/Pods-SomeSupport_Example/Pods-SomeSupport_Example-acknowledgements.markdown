@@ -3,7 +3,7 @@ This application makes use of the following third party libraries:
 
 ## SomeSupport
 
-Copyright (c) 2022 NHT18610866107@163.com <NHT18610866107@163.com>
+Copyright (c) 2022 NHT @163.com <NHT @163.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

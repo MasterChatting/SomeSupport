@@ -6,7 +6,7 @@
 //  Copyright © 2019 HYXF. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import <Photos/Photos.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -80,14 +80,6 @@ typedef NS_ENUM(NSInteger, IHGradientChangeDirection) {
 ///获取当前屏幕显示的viewcontroller
 + (UIViewController *)getCurrentVC;
 
-#pragma mark---- ----创建是否自动消失的弹框
-/**
- message显示信息，disappearTime几秒后自动消失，为0时不自动消失，会添加确定按钮
- 
- @param message 提示信息
- @param disappearTime 自动消失的时间 为0时不自动消失并会添加确定按钮
- */
-+(void)createALert:(NSString *)message andDisappear:(CGFloat)disappearTime;
 
 /**
  将数组转换成 json字符以上传服务器
@@ -132,7 +124,21 @@ typedef NS_ENUM(NSInteger, IHGradientChangeDirection) {
  */
 +(id)getNSUerDefaultsByKey:(NSString *)key;
 
-
+#pragma mark---常用字符串非空校验，int、float等转换string
+///校验是否是非空字符串
++(BOOL)IsNOTEmptyStr:(id)checkValue;
+///校验字符串为空
++(BOOL)IsEmptyStr:(id)checkValue;
+///int转字符串
++(NSString *)ToString_Int:(int)value;
+///NSInteger转字符串
++(NSString *)ToString_NSInteger:(NSInteger)value;
+///float转字符串
++(NSString *)ToString_Float:(float)value;
+#pragma mark---生成颜色
+/// 生成颜色
+/// - Parameter hex: hex值
++(UIColor *)ColorWithHex:(NSString *)hexString;
 
 @end
 

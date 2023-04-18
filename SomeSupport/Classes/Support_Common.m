@@ -191,30 +191,6 @@
     }
     return result;
 }
-#pragma mark---- ----创建是否自动消失的弹框
-+(void)createALert:(NSString *)message andDisappear:(CGFloat)disappearTime{
-    if (IsEmptyStr(message)) {
-        message = @"操作失败，请重试!";
-    }
-    UIAlertController *alert = [UIAlertController  alertControllerWithTitle:@"" message:message preferredStyle:UIAlertControllerStyleAlert];
-    if (disappearTime == 0) {
-        //不自动消失 就添加确定按钮
-        [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            NSLog(@"点击确认");
-        }]];
-    }
-    
-    UIViewController *nowVC = [Support_Common getCurrentVC];
-    [nowVC presentViewController:alert animated:YES completion:nil];
-    if (disappearTime != 0) {
-        [Support_Common performSelector:@selector(alertDisappear:) withObject:alert afterDelay:disappearTime];
-    }
-}
-+(void)alertDisappear:(UIAlertController *)alert{
-    [alert dismissViewControllerAnimated:YES completion:^{
-        
-    }];
-}
 
 #pragma mark---数组转json json字符转对应类型
 //数组转json
@@ -425,5 +401,78 @@
     return  returnMes;
 }
 
+#pragma mark---常用字符串非空校验，int、float等转换string
+///校验是否是非空字符串
++(BOOL)IsNOTEmptyStr:(id)checkValue{
+    if((checkValue == nil || checkValue == NULL || [checkValue isKindOfClass:[NSNull class]] || [[checkValue stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length] ==0 )){
+        return NO;
+    }
+    return YES;
+}
++(BOOL)IsEmptyStr:(id)checkValue{
+    return ! [self IsNOTEmptyStr:checkValue];
+}
++(NSString *)ToString_Int:(int)value{
+    return [NSString stringWithFormat:@"%d",value];
+}
++(NSString *)ToString_NSInteger:(NSInteger)value{
+    return [NSString stringWithFormat:@"%ld",value];
+}
++(NSString *)ToString_Float:(float)value{
+    return [NSString stringWithFormat:@"%f",value];
+}
+#pragma mark---生成颜色
++ (CGFloat)colorComponentFrom:(NSString *)string start:(NSUInteger)start length:(NSUInteger) length {
+    NSString *substring = [string substringWithRange:NSMakeRange(start, length)];
+    NSString *fullHex = length == 2 ? substring : [NSString stringWithFormat: @"%@%@", substring, substring];
+    unsigned hexComponent;
+    [[NSScanner scannerWithString: fullHex] scanHexInt: &hexComponent];
+    return hexComponent / 255.0;
+}
++ (UIColor *)ColorWithHex:(NSString *)hexString {
+    CGFloat alpha, red, blue, green;
+    
+    NSString *colorString = [[hexString stringByReplacingOccurrencesOfString:@"#" withString:@""] uppercaseString];
+    switch ([colorString length]) {
+        case 3: // #RGB
+        {
+            alpha = 1.0f;
+            red = [self colorComponentFrom:colorString start:0 length:1];
+            green = [self colorComponentFrom:colorString start:1 length:1];
+            blue = [self colorComponentFrom:colorString start:2 length:1];
+        }
+            break;
+            
+        case 4: // #ARGB
+        {
+            alpha = [self colorComponentFrom:colorString start:0 length:1];
+            red   = [self colorComponentFrom:colorString start:1 length:1];
+            green = [self colorComponentFrom:colorString start:2 length:1];
+            blue  = [self colorComponentFrom:colorString start:3 length:1];
+        }
+            break;
+            
+        case 6: // #RRGGBB
+        {
+            alpha = 1.0f;
+            red = [self colorComponentFrom:colorString start:0 length:2];
+            green = [self colorComponentFrom:colorString start:2 length:2];
+            blue  = [self colorComponentFrom:colorString start:4 length:2];
+        }
+            break;
+            
+        case 8: // #AARRGGBB
+        {
+            alpha = [self colorComponentFrom:colorString start:0 length:2];
+            red = [self colorComponentFrom:colorString start:2 length:2];
+            green = [self colorComponentFrom:colorString start:4 length:2];
+            blue  = [self colorComponentFrom:colorString start:6 length:2];
+        }
+            break;
+        default:
+            return nil;
+    }
+    return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
+}
 
 @end
